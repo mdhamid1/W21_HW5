@@ -179,10 +179,10 @@ class TestCard(unittest.TestCase):
         
         #save initial length of deck for comparison
         initial_deck = len(d5.cards)
-        print(initial_deck)
+        #print(initial_deck)
         
         #print mycard to check which card was pulled out
-        print(mycard) #--> king of spades was pulled out so try to replace deck with another card
+        #print(mycard) #--> king of spades was pulled out so try to replace deck with another card
 
         #try to replace deck with king of hearts.
         # First create card object:
@@ -193,8 +193,19 @@ class TestCard(unittest.TestCase):
 
         #save final length of deck from comparison
         final_deck = len(d5.cards)
-        print(final_deck)
+        #print(final_deck)
 
+        self.assertEqual(final_deck, initial_deck)
+
+
+        ########another method:############
+        #dont deal a card out and instead try to add it into the original deck
+        d5 = hw5_cards.Deck()
+        initial_deck = len(d5.cards)
+        print(initial_deck)
+        koh_card = hw5_cards.Card(suit=2, rank=13)
+        final_deck = len(d5.cards)
+        print(final_deck)
         self.assertEqual(final_deck, initial_deck)
 
         return final_deck, initial_deck
